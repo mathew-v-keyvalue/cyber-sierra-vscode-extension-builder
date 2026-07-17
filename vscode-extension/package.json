@@ -1,0 +1,43 @@
+{
+  "name": "morpheus-toolchain",
+  "displayName": "Morpheus (Cyber Sierra)",
+  "description": "Installs the Morpheus CLI and deploys the Cyber Sierra compliance-automation agent skill to Cursor and Claude Code.",
+  "version": "0.1.0",
+  "publisher": "cyber-sierra",
+  "license": "UNLICENSED",
+  "categories": ["Other"],
+  "keywords": ["morpheus", "cyber-sierra", "compliance", "audit", "cli", "skill"],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "extensionKind": ["workspace"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "morpheus.initialize",
+        "title": "Initialize",
+        "category": "Morpheus"
+      }
+    ]
+  },
+  "scripts": {
+    "sync-resources": "bash scripts/sync-resources.sh",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "build": "esbuild src/extension.ts --bundle --platform=node --target=node18 --external:vscode --outfile=out/extension.js --format=cjs --minify --sourcemap",
+    "vscode:prepublish": "npm run build",
+    "package": "npm run lint && npm run typecheck && npm run sync-resources && npm run build && npx @vscode/vsce package --allow-missing-repository"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "@vscode/vsce": "^3.0.0",
+    "esbuild": "^0.20.0",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.0"
+  }
+}

@@ -1,0 +1,3464 @@
+{
+  "version": "25f9112f40a8",
+  "generatedFrom": "openapi.json",
+  "tree": {
+    "governance": [
+      {
+        "module": "governance",
+        "resource": "control-breaks",
+        "action": "dashboard",
+        "method": "POST",
+        "path": "/v4/governance/control-breaks/dashboard",
+        "description": "Get the controls-breaks dashboard data",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "bodyKind": "object",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "controls",
+        "action": "add-assignees",
+        "method": "POST",
+        "path": "/v4/governance/controls/add-assignees",
+        "description": "Assign users to multiple controls",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "controls",
+        "action": "assign-status",
+        "method": "GET",
+        "path": "/v4/governance/controls/assign-status",
+        "description": "Get assignment status for controls (e.g. broken filter)",
+        "params": [
+          {
+            "name": "controlFilter",
+            "location": "query",
+            "required": true,
+            "type": "string",
+            "default": "all"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "controls",
+        "action": "basics",
+        "method": "GET",
+        "path": "/v4/governance/controls/basics",
+        "description": "List controls with minimal fields (id, name, code)",
+        "params": [
+          {
+            "name": "keyword",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "location": "query",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "limit",
+            "location": "query",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "controls",
+        "action": "bulk-create",
+        "method": "POST",
+        "path": "/v4/governance/controls/bulk",
+        "description": "Bulk-create governance controls",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "controls",
+        "action": "create",
+        "method": "POST",
+        "path": "/v4/governance/controls",
+        "description": "Create a governance control",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "controls",
+        "action": "link-evidences",
+        "method": "POST",
+        "path": "/v4/governance/controls/{id}/link-evidences",
+        "description": "Link evidences to a control",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "controls",
+        "action": "link-policies",
+        "method": "POST",
+        "path": "/v4/governance/controls/{id}/link-policies",
+        "description": "Link policies to a control",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "controls",
+        "action": "link-programs",
+        "method": "POST",
+        "path": "/v4/governance/controls/{id}/link-programs",
+        "description": "Link programs to a control",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "controls",
+        "action": "link-suggested-evidences",
+        "method": "POST",
+        "path": "/v4/governance/controls/{id}/link-suggested-evidences",
+        "description": "Link AI-suggested evidences to a control",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "controls",
+        "action": "list",
+        "method": "GET",
+        "path": "/v4/governance/controls",
+        "description": "List governance controls",
+        "params": [
+          {
+            "name": "policyIds",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "standardIds",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "controls",
+        "action": "remove-evidence",
+        "method": "DELETE",
+        "path": "/v4/governance/controls/{controlId}/evidences/{evidenceId}",
+        "description": "Remove an evidence from a control",
+        "params": [
+          {
+            "name": "controlId",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "evidenceId",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none"
+      },
+      {
+        "module": "governance",
+        "resource": "controls",
+        "action": "set-applicable",
+        "method": "PUT",
+        "path": "/v4/governance/controls/{id}/applicable",
+        "description": "Mark a control as applicable or not applicable",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "controls",
+        "action": "unlink-policies",
+        "method": "POST",
+        "path": "/v4/governance/controls/{id}/un-link-policies",
+        "description": "Unlink policies from a control",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "controls",
+        "action": "unlink-programs",
+        "method": "POST",
+        "path": "/v4/governance/controls/{id}/un-link-programs",
+        "description": "Unlink programs from a control",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "controls",
+        "action": "update",
+        "method": "PUT",
+        "path": "/v4/governance/controls/{id}",
+        "description": "Update a governance control",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "controls",
+        "action": "update-compliance",
+        "method": "PUT",
+        "path": "/v4/governance/controls/{id}/compliance-details",
+        "description": "Update compliance status details of a control",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "controls",
+        "action": "update-evidence-tags",
+        "method": "PUT",
+        "path": "/v4/governance/controls/{controlId}/evidences/{evidenceId}/tags",
+        "description": "Update tags on a control evidence",
+        "params": [
+          {
+            "name": "controlId",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "evidenceId",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none"
+      },
+      {
+        "module": "governance",
+        "resource": "documents",
+        "action": "get",
+        "method": "GET",
+        "path": "/v4/governance/documents/{id}/template",
+        "description": "Get the template for a governance document",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "documents",
+        "action": "link-file",
+        "method": "POST",
+        "path": "/v4/governance/documents/{id}/link-file",
+        "description": "Upload and link a file to a governance document",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "add-comment",
+        "method": "POST",
+        "path": "/v4/governance/policies/{id}/comments",
+        "description": "Add a comment to a policy",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "add-control",
+        "method": "POST",
+        "path": "/v4/governance/policies/{id}/add-control",
+        "description": "Create and attach a control to a policy",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "approve",
+        "method": "POST",
+        "path": "/v4/governance/policies/{id}/approve",
+        "description": "Approve a single policy",
+        "params": [
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none"
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "basics",
+        "method": "GET",
+        "path": "/v4/governance/policies/basics",
+        "description": "List policies with minimal fields (id, name, status)",
+        "params": [
+          {
+            "name": "keyword",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "programIds",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "location": "query",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "limit",
+            "location": "query",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "bulk-approve",
+        "method": "POST",
+        "path": "/v4/governance/policies/approve",
+        "description": "Approve multiple policies",
+        "params": [
+          {
+            "name": "policyIds",
+            "location": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "bodyKind": "none"
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "bulk-reject",
+        "method": "POST",
+        "path": "/v4/governance/policies/reject",
+        "description": "Reject multiple policies",
+        "params": [
+          {
+            "name": "policyIds",
+            "location": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "bodyKind": "none"
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "bulk-submit",
+        "method": "POST",
+        "path": "/v4/governance/policies/submit",
+        "description": "Submit multiple policies for approval",
+        "params": [
+          {
+            "name": "policyIds",
+            "location": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "bodyKind": "none"
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "comments",
+        "method": "GET",
+        "path": "/v4/governance/policies/{id}/comments",
+        "description": "List comments on a policy",
+        "params": [
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "content",
+        "method": "GET",
+        "path": "/v4/governance/policies/{id}/content",
+        "description": "Get the editor content of a policy",
+        "params": [
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "controls",
+        "method": "GET",
+        "path": "/v4/governance/policies/{id}/controls",
+        "description": "List controls linked to a policy",
+        "params": [
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "create",
+        "method": "POST",
+        "path": "/v4/governance/policies",
+        "description": "Create a governance policy",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "delete",
+        "method": "DELETE",
+        "path": "/v4/governance/policies/{id}",
+        "description": "Delete a governance policy",
+        "params": [
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none"
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "get",
+        "method": "GET",
+        "path": "/v4/governance/policies/{id}",
+        "description": "Get the detail of a governance policy",
+        "params": [
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "get-version",
+        "method": "GET",
+        "path": "/v4/governance/policies/{id}/versions/{versionTag}",
+        "description": "Get a specific version of a policy",
+        "params": [
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "versionTag",
+            "location": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "import",
+        "method": "POST",
+        "path": "/v4/governance/policies/import",
+        "description": "Bulk-import policies from a file",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "link-controls",
+        "method": "POST",
+        "path": "/v4/governance/policies/{id}/link-controls",
+        "description": "Link existing controls to a policy",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "list",
+        "method": "GET",
+        "path": "/v4/governance/policies",
+        "description": "List governance policies",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "reject",
+        "method": "POST",
+        "path": "/v4/governance/policies/{id}/reject",
+        "description": "Reject a single policy",
+        "params": [
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none"
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "save-content",
+        "method": "POST",
+        "path": "/v4/governance/policies/{id}/content",
+        "description": "Save editor content of a policy",
+        "params": [
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none"
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "save-content-version",
+        "method": "POST",
+        "path": "/v4/governance/policies/{id}/content/versions",
+        "description": "Save current policy content as a new version",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "submit",
+        "method": "POST",
+        "path": "/v4/governance/policies/{id}/submit",
+        "description": "Submit a single policy for approval",
+        "params": [
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none"
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "trigger-acknowledgement",
+        "method": "POST",
+        "path": "/v4/governance/policies/trigger-acknowledgement",
+        "description": "Trigger acknowledgement flow for policies",
+        "params": [
+          {
+            "name": "policyIds",
+            "location": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "bodyKind": "none"
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "trigger-signoff",
+        "method": "POST",
+        "path": "/v4/governance/policies/trigger-signoff",
+        "description": "Trigger sign-off flow for policies",
+        "params": [
+          {
+            "name": "policyIds",
+            "location": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "bodyKind": "none"
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "unlink-controls",
+        "method": "POST",
+        "path": "/v4/governance/policies/{id}/un-link-controls",
+        "description": "Unlink controls from a policy",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "update",
+        "method": "PUT",
+        "path": "/v4/governance/policies/{id}",
+        "description": "Update a governance policy",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "upload-content",
+        "method": "POST",
+        "path": "/v4/governance/policies/{id}/content/upload",
+        "description": "Upload a document as policy content",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "file",
+            "location": "file",
+            "type": "string",
+            "required": true,
+            "examples": []
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "policies",
+        "action": "versions",
+        "method": "GET",
+        "path": "/v4/governance/policies/{id}/versions",
+        "description": "List all versions of a policy",
+        "params": [
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "programs",
+        "action": "acknowledge-policies",
+        "method": "POST",
+        "path": "/v4/governance/programs/{id}/policies/acknowledge",
+        "description": "Acknowledge policies in a program",
+        "params": [
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none"
+      },
+      {
+        "module": "governance",
+        "resource": "programs",
+        "action": "create",
+        "method": "POST",
+        "path": "/v4/governance/programs",
+        "description": "Create a governance program",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "programs",
+        "action": "get",
+        "method": "GET",
+        "path": "/v4/governance/programs/{id}",
+        "description": "Get the detail of a governance program",
+        "params": [
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "programs",
+        "action": "list",
+        "method": "GET",
+        "path": "/v4/governance/programs",
+        "description": "List governance programs",
+        "params": [
+          {
+            "name": "extended",
+            "location": "query",
+            "required": true,
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "name",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "programs",
+        "action": "send-acknowledge-email",
+        "method": "POST",
+        "path": "/v4/governance/programs/{id}/send-email/acknowledge",
+        "description": "Send acknowledgement email for a program",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "programs",
+        "action": "sign-off",
+        "method": "GET",
+        "path": "/v4/governance/programs/{id}/sign-off",
+        "description": "Get sign-off data for a program",
+        "params": [
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "programs",
+        "action": "sign-off-documents",
+        "method": "POST",
+        "path": "/v4/governance/programs/{id}/documents/sign-off",
+        "description": "Sign off program documents",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "programs",
+        "action": "sign-off-policies",
+        "method": "POST",
+        "path": "/v4/governance/programs/{id}/policies/sign-off",
+        "description": "Sign off policies in a program",
+        "params": [
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none"
+      },
+      {
+        "module": "governance",
+        "resource": "programs",
+        "action": "submit-documents",
+        "method": "POST",
+        "path": "/v4/governance/programs/{id}/documents/submit",
+        "description": "Send program documents for approval",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "programs",
+        "action": "update",
+        "method": "PUT",
+        "path": "/v4/governance/programs/{id}",
+        "description": "Update a governance program",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "standards",
+        "action": "list",
+        "method": "GET",
+        "path": "/v4/governance/standards",
+        "description": "List compliance standards",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "standards",
+        "action": "suggestion",
+        "method": "GET",
+        "path": "/v4/governance/standards/suggestion",
+        "description": "Get suggested standard for a new program",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "universal-controls",
+        "action": "add-comment",
+        "method": "POST",
+        "path": "/v4/governance/universal-controls/comments/create",
+        "description": "Add a comment to a universal control",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "universal-controls",
+        "action": "control-breaks",
+        "method": "GET",
+        "path": "/v4/governance/universal-controls/{controlId}/control-breaks",
+        "description": "Get control break detail for a universal control",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "universal-controls",
+        "action": "delete-comment",
+        "method": "DELETE",
+        "path": "/v4/governance/universal-controls/{controlId}/comments/{commentId}",
+        "description": "Delete a comment from a universal control",
+        "params": [],
+        "bodyKind": "none"
+      },
+      {
+        "module": "governance",
+        "resource": "universal-controls",
+        "action": "evidences",
+        "method": "GET",
+        "path": "/v4/governance/universal-controls/{id}/evidences",
+        "description": "List evidences for a universal control",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "universal-controls",
+        "action": "list",
+        "method": "GET",
+        "path": "/v4/governance/universal-controls",
+        "description": "List universal controls",
+        "params": [
+          {
+            "name": "keyword",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "policies",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "standards",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "verificationStatus",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "controlFilter",
+            "location": "query",
+            "required": true,
+            "type": "string",
+            "default": "all"
+          },
+          {
+            "name": "assignmentFilter",
+            "location": "query",
+            "required": true,
+            "type": "string",
+            "default": "all"
+          },
+          {
+            "name": "evidences",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ids",
+            "location": "query",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "name": "assignees",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "complianceStatus",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "universal-controls",
+        "action": "list-comments",
+        "method": "POST",
+        "path": "/v4/governance/universal-controls/comments/list",
+        "description": "List comments on a universal control",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "bodyKind": "object",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "universal-controls",
+        "action": "mark-comments-read",
+        "method": "PATCH",
+        "path": "/v4/governance/universal-controls/comments/mark-as-read",
+        "description": "Mark comments as read on a universal control",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "universal-controls",
+        "action": "policies",
+        "method": "GET",
+        "path": "/v4/governance/universal-controls/{id}/policies",
+        "description": "List policies linked to a universal control",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "universal-controls",
+        "action": "programs",
+        "method": "GET",
+        "path": "/v4/governance/universal-controls/{id}/programs",
+        "description": "List programs linked to a universal control",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "universal-controls",
+        "action": "run-audit-agent",
+        "method": "GET",
+        "path": "/v4/governance/universal-controls/run-audit-agent",
+        "description": "Run AI audit agent across controls",
+        "params": [
+          {
+            "name": "keyword",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "policies",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "standards",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "verificationStatus",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "controlFilter",
+            "location": "query",
+            "required": true,
+            "type": "string",
+            "default": "all"
+          },
+          {
+            "name": "assignmentFilter",
+            "location": "query",
+            "required": true,
+            "type": "string",
+            "default": "all"
+          },
+          {
+            "name": "evidences",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ids",
+            "location": "query",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "name": "assignees",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "complianceStatus",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "universal-controls",
+        "action": "run-mapping-agent",
+        "method": "GET",
+        "path": "/v4/governance/universal-controls/run-mapping-agent",
+        "description": "Run AI evidence-mapping agent for controls",
+        "params": [
+          {
+            "name": "keyword",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "policies",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "standards",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "verificationStatus",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "controlFilter",
+            "location": "query",
+            "required": true,
+            "type": "string",
+            "default": "all"
+          },
+          {
+            "name": "assignmentFilter",
+            "location": "query",
+            "required": true,
+            "type": "string",
+            "default": "all"
+          },
+          {
+            "name": "evidences",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ids",
+            "location": "query",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "name": "assignees",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "complianceStatus",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "universal-controls",
+        "action": "tasks",
+        "method": "GET",
+        "path": "/v4/governance/universal-controls/{id}/tasks",
+        "description": "List tasks linked to a universal control",
+        "params": [
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "workflows",
+        "action": "add-assignment",
+        "method": "POST",
+        "path": "/governance/workflows/{workflow_id}/policies/{policy_id}/assignments",
+        "description": "Add an assignment to a policy in a workflow",
+        "params": [],
+        "bodyKind": "none"
+      },
+      {
+        "module": "governance",
+        "resource": "workflows",
+        "action": "assignments",
+        "method": "GET",
+        "path": "/governance/workflows/{workflow_id}/policies/{policy_id}/assignments",
+        "description": "List assignments for a policy in a workflow",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "workflows",
+        "action": "create",
+        "method": "POST",
+        "path": "/governance/workflow",
+        "description": "Create a governance workflow",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "governance",
+        "resource": "workflows",
+        "action": "delete-assignment",
+        "method": "DELETE",
+        "path": "/governance/workflows/{workflow_id}/policies/{policy_id}/assignments/{assignment_id}",
+        "description": "Remove an assignment from a workflow policy",
+        "params": [],
+        "bodyKind": "none"
+      },
+      {
+        "module": "governance",
+        "resource": "workflows",
+        "action": "employee-acknowledge",
+        "method": "POST",
+        "path": "/governance/workflows/{workflow_id}/employee/acknowledge",
+        "description": "Employee acknowledges a governance workflow",
+        "params": [],
+        "bodyKind": "none"
+      },
+      {
+        "module": "governance",
+        "resource": "workflows",
+        "action": "get",
+        "method": "GET",
+        "path": "/governance/workflows/{workflow_id}",
+        "description": "Get the detail of a governance workflow",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "workflows",
+        "action": "manager-approve",
+        "method": "POST",
+        "path": "/governance/workflows/{workflowId}/manager/approve",
+        "description": "Manager approves a governance workflow",
+        "params": [],
+        "bodyKind": "none"
+      },
+      {
+        "module": "governance",
+        "resource": "workflows",
+        "action": "managers",
+        "method": "GET",
+        "path": "/governance/workflows/{workflowId}/managers",
+        "description": "List managers of a governance workflow",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "workflows",
+        "action": "policies",
+        "method": "GET",
+        "path": "/governance/workflows/{workflow_id}/policies",
+        "description": "List policies in a governance workflow",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "governance",
+        "resource": "workflows",
+        "action": "reject-policy",
+        "method": "POST",
+        "path": "/governance/workflows/{workflow_id}/policies/{policy_id}/reject",
+        "description": "Reject a policy in a workflow",
+        "params": [],
+        "bodyKind": "none"
+      },
+      {
+        "module": "governance",
+        "resource": "workflows",
+        "action": "update-policy",
+        "method": "PUT",
+        "path": "/governance/workflows/{workflow_id}/policies/{policy_id}",
+        "description": "Update a policy within a workflow",
+        "params": [],
+        "bodyKind": "none"
+      }
+    ],
+    "health": [
+      {
+        "module": "health",
+        "resource": "status",
+        "action": "get",
+        "method": "GET",
+        "path": "/health",
+        "description": "Backend liveness check",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      }
+    ],
+    "permissions": [
+      {
+        "module": "permissions",
+        "resource": "policies",
+        "action": "list",
+        "method": "GET",
+        "path": "/permissions/policies",
+        "description": "List permission policies",
+        "params": [
+          {
+            "name": "subject",
+            "location": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      }
+    ],
+    "tprm": [
+      {
+        "module": "tprm",
+        "resource": "activity-logs",
+        "action": "filter-options",
+        "method": "GET",
+        "path": "/tprm/activity-logs/filters/options",
+        "description": "Get filter options for the activity logs list",
+        "params": [
+          {
+            "name": "objectType",
+            "location": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "objectId",
+            "location": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessee-drafts",
+        "action": "detail-columns",
+        "method": "GET",
+        "path": "/tprm/assessees/drafts/{id}/details/columns",
+        "description": "Get column definitions for assessees in a draft",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessee-drafts",
+        "action": "detail-filter-options",
+        "method": "GET",
+        "path": "/tprm/assessees/drafts/{id}/details/filters/options",
+        "description": "Get filter options for assessees in a draft",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessee-drafts",
+        "action": "get",
+        "method": "GET",
+        "path": "/tprm/assessees/drafts/{id}",
+        "description": "Get the metadata of a specific registry draft",
+        "params": [
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessee-drafts",
+        "action": "list",
+        "method": "GET",
+        "path": "/tprm/assessees/drafts",
+        "description": "List registry drafts",
+        "params": [
+          {
+            "name": "keyword",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "location": "query",
+            "required": true,
+            "type": "number",
+            "default": 10
+          },
+          {
+            "name": "page",
+            "location": "query",
+            "required": true,
+            "type": "number",
+            "default": 1
+          },
+          {
+            "name": "sort",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filters",
+            "location": "query",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessee-versions",
+        "action": "change-columns",
+        "method": "GET",
+        "path": "/tprm/assessees/versions/{id}/changes/columns",
+        "description": "Get column definitions for the version changes view",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessee-versions",
+        "action": "change-filter-options",
+        "method": "GET",
+        "path": "/tprm/assessees/versions/{id}/changes/filters/options",
+        "description": "Get filter options for the version changes view",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessee-versions",
+        "action": "count",
+        "method": "GET",
+        "path": "/tprm/assessees/versions/count",
+        "description": "Get total count of registry versions",
+        "params": [
+          {
+            "name": "keyword",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "location": "query",
+            "required": true,
+            "type": "number",
+            "default": 10
+          },
+          {
+            "name": "page",
+            "location": "query",
+            "required": true,
+            "type": "number",
+            "default": 1
+          },
+          {
+            "name": "sort",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filters",
+            "location": "query",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessee-versions",
+        "action": "get",
+        "method": "GET",
+        "path": "/tprm/assessees/versions/{id}",
+        "description": "Get the detail of a specific registry version",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessee-versions",
+        "action": "latest",
+        "method": "GET",
+        "path": "/tprm/assessees/versions/latest-version",
+        "description": "Get metadata of the latest registry version",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessee-versions",
+        "action": "list",
+        "method": "GET",
+        "path": "/tprm/assessees/versions",
+        "description": "List registry versions",
+        "params": [
+          {
+            "name": "keyword",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "location": "query",
+            "required": true,
+            "type": "number",
+            "default": 10
+          },
+          {
+            "name": "page",
+            "location": "query",
+            "required": true,
+            "type": "number",
+            "default": 1
+          },
+          {
+            "name": "sort",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filters",
+            "location": "query",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessees",
+        "action": "columns",
+        "method": "GET",
+        "path": "/tprm/assessees/columns",
+        "description": "Get table column definitions for the assessees list",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessees",
+        "action": "comments",
+        "method": "GET",
+        "path": "/tprm/assessees/{id}/comments",
+        "description": "List comments on an assessee",
+        "params": [
+          {
+            "name": "keyword",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "cursor",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "location": "query",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessees",
+        "action": "count",
+        "method": "GET",
+        "path": "/tprm/assessees/count",
+        "description": "Count assessees in the tenant",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessees",
+        "action": "create",
+        "method": "POST",
+        "path": "/tprm/assessees",
+        "description": "Add a single assessee",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "tprm",
+        "resource": "assessees",
+        "action": "filter-options",
+        "method": "GET",
+        "path": "/tprm/assessees/filters/options",
+        "description": "Get available filter options for the assessees list",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessees",
+        "action": "get",
+        "method": "GET",
+        "path": "/tprm/assessees/{id}",
+        "description": "Get the detail of a single assessee",
+        "params": [
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessees",
+        "action": "list",
+        "method": "POST",
+        "path": "/tprm/assessees/list",
+        "description": "List assessees (optional filters via --data, e.g. {\"page\":1,\"limit\":20})",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "bodyKind": "object",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessees",
+        "action": "members",
+        "method": "GET",
+        "path": "/tprm/assessees/{id}/members",
+        "description": "List contact members for an assessee",
+        "params": [
+          {
+            "name": "page",
+            "location": "query",
+            "required": true,
+            "type": "number",
+            "default": 1
+          },
+          {
+            "name": "limit",
+            "location": "query",
+            "required": true,
+            "type": "number",
+            "default": 10
+          },
+          {
+            "name": "keyword",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessees",
+        "action": "registry-columns",
+        "method": "GET",
+        "path": "/tprm/assessees/registry/columns",
+        "description": "Get customizable column definitions for the registry view",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessees",
+        "action": "scan-filter-options",
+        "method": "GET",
+        "path": "/tprm/assessees/scans/{id}/filter/options",
+        "description": "Get filter options for a scan's vulnerability list",
+        "params": [
+          {
+            "name": "groupType",
+            "location": "query",
+            "required": true,
+            "type": "string",
+            "default": "host"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessees",
+        "action": "scans",
+        "method": "GET",
+        "path": "/tprm/assessees/{id}/scans",
+        "description": "List security scans for an assessee",
+        "params": [
+          {
+            "name": "page",
+            "location": "query",
+            "required": true,
+            "type": "number",
+            "default": 1
+          },
+          {
+            "name": "limit",
+            "location": "query",
+            "required": true,
+            "type": "number",
+            "default": 10
+          },
+          {
+            "name": "keyword",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "scanTypes",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessment-drafts",
+        "action": "create",
+        "method": "POST",
+        "path": "/tprm/assessments/drafts",
+        "description": "Create an assessment draft",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "tprm",
+        "resource": "assessment-drafts",
+        "action": "delete",
+        "method": "DELETE",
+        "path": "/tprm/assessments/drafts/{id}",
+        "description": "Delete an assessment draft",
+        "params": [
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none"
+      },
+      {
+        "module": "tprm",
+        "resource": "assessment-drafts",
+        "action": "get",
+        "method": "GET",
+        "path": "/tprm/assessments/drafts/{id}",
+        "description": "Get the detail of an assessment draft",
+        "params": [
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessment-drafts",
+        "action": "list",
+        "method": "GET",
+        "path": "/tprm/assessments/drafts",
+        "description": "List assessment drafts",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessment-drafts",
+        "action": "mark-favorite",
+        "method": "PATCH",
+        "path": "/tprm/assessments/drafts/{id}/mark-favorite",
+        "description": "Mark an assessment draft as favourite",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "tprm",
+        "resource": "assessment-drafts",
+        "action": "update",
+        "method": "PUT",
+        "path": "/tprm/assessments/drafts/{id}",
+        "description": "Update an assessment draft",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "tprm",
+        "resource": "assessment-questions",
+        "action": "get",
+        "method": "GET",
+        "path": "/tprm/assessments/{assessmentId}/questions/{questionId}",
+        "description": "Get the detail of a single assessment question",
+        "params": [
+          {
+            "name": "questionId",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "assessmentId",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "fileId",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessment-questions",
+        "action": "update-all",
+        "method": "PATCH",
+        "path": "/tprm/assessments/{id}/questions",
+        "description": "Bulk-update assessment-level question settings (required comment / evidence)",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "tprm",
+        "resource": "assessment-questions",
+        "action": "update-answer-risk-weight",
+        "method": "PATCH",
+        "path": "/tprm/assessments/{assessmentId}/questions/{questionId}/answer-risk-wgt",
+        "description": "Update answer option risk weightage",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "questionId",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "assessmentId",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "tprm",
+        "resource": "assessment-questions",
+        "action": "update-risk-weight",
+        "method": "PATCH",
+        "path": "/tprm/assessments/{assessmentId}/questions/{questionId}/risk-wgt",
+        "description": "Update question risk weightage",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "questionId",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "assessmentId",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "tprm",
+        "resource": "assessment-sections",
+        "action": "add-reviewers",
+        "method": "POST",
+        "path": "/tprm/assessments/{id}/sections/reviewers",
+        "description": "Add reviewers to multiple sections at once",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "tprm",
+        "resource": "assessment-sections",
+        "action": "remove-reviewers",
+        "method": "DELETE",
+        "path": "/tprm/assessments/{id}/sections/reviewers",
+        "description": "Remove reviewers from sections",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "tprm",
+        "resource": "assessment-sections",
+        "action": "update-questions",
+        "method": "PATCH",
+        "path": "/tprm/assessments/{assessmentId}/sections/{sectionId}/questions",
+        "description": "Set required comment / evidence flags for questions in a section",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "assessmentId",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "sectionId",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "tprm",
+        "resource": "assessment-sections",
+        "action": "update-section-reviewers",
+        "method": "POST",
+        "path": "/tprm/assessments/{assessmentId}/sections/{sectionId}/reviewers",
+        "description": "Update reviewers for a specific section",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "array"
+          },
+          {
+            "name": "assessmentId",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "sectionId",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "tprm",
+        "resource": "assessment-templates",
+        "action": "delete",
+        "method": "DELETE",
+        "path": "/tprm/assessment-templates/{id}",
+        "description": "Delete an assessment template",
+        "params": [
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none"
+      },
+      {
+        "module": "tprm",
+        "resource": "assessment-templates",
+        "action": "get",
+        "method": "GET",
+        "path": "/tprm/assessment-templates/{id}",
+        "description": "Get the detail of an assessment template",
+        "params": [
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessment-templates",
+        "action": "list",
+        "method": "GET",
+        "path": "/tprm/assessment-templates",
+        "description": "List assessment templates",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessment-templates",
+        "action": "mark-favorite",
+        "method": "PATCH",
+        "path": "/tprm/assessment-templates/{id}/mark-favorite",
+        "description": "Mark an assessment template as favourite",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "tprm",
+        "resource": "assessment-templates",
+        "action": "upload",
+        "method": "POST",
+        "path": "/tprm/assessment-templates/upload",
+        "description": "Upload a custom assessment template file",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "file",
+            "location": "file",
+            "type": "string",
+            "required": true,
+            "examples": []
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "tprm",
+        "resource": "assessments",
+        "action": "check-assessees",
+        "method": "POST",
+        "path": "/tprm/assessments/check-create-assessees",
+        "description": "Validate assessee emails before creating assessments",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "tprm",
+        "resource": "assessments",
+        "action": "comments",
+        "method": "GET",
+        "path": "/tprm/assessments/{id}/comments",
+        "description": "List comments on an assessment",
+        "params": [
+          {
+            "name": "keyword",
+            "location": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessments",
+        "action": "comparison",
+        "method": "GET",
+        "path": "/tprm/assessments/comparison",
+        "description": "Compare multiple assessments side by side",
+        "params": [
+          {
+            "name": "ids",
+            "location": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessments",
+        "action": "get",
+        "method": "GET",
+        "path": "/tprm/assessments/{id}",
+        "description": "Get the full detail of a single assessment by ID",
+        "params": [
+          {
+            "name": "type",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "submissionType",
+            "location": "query",
+            "required": true,
+            "type": "string",
+            "default": "save"
+          },
+          {
+            "name": "assesseeTypes",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "templateNames",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sentByCompanyNames",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sentByEmails",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "statuses",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "countries",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "location": "query",
+            "required": true,
+            "type": "string",
+            "default": "-date",
+            "examples": [
+              "+date",
+              "-date",
+              "+title",
+              "-title"
+            ]
+          },
+          {
+            "name": "limit",
+            "location": "query",
+            "required": true,
+            "type": "number",
+            "default": 10
+          },
+          {
+            "name": "keyword",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "location": "query",
+            "required": true,
+            "type": "number",
+            "default": 1
+          },
+          {
+            "name": "reviewers",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "assessee",
+            "location": "query",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "assesseeId",
+            "location": "query",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "hybridAssessmentSubmission",
+            "location": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "tags",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "assessmentType",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "assignees",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "senders",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "assessmentSenderTenants",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "source",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessments",
+        "action": "get-assessees",
+        "method": "GET",
+        "path": "/tprm/assessments/assessees",
+        "description": "Get assessees of the requestor",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessments",
+        "action": "get-context-links",
+        "method": "POST",
+        "path": "/tprm/assessments/get-context-links",
+        "description": "Fetch context links for an assessment",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "bodyKind": "object",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessments",
+        "action": "list",
+        "method": "GET",
+        "path": "/tprm/assessments",
+        "description": "List third-party risk assessments visible to you",
+        "params": [
+          {
+            "name": "type",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "submissionType",
+            "location": "query",
+            "required": true,
+            "type": "string",
+            "default": "save"
+          },
+          {
+            "name": "assesseeTypes",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "templateNames",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sentByCompanyNames",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sentByEmails",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "statuses",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "countries",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "location": "query",
+            "required": true,
+            "type": "string",
+            "default": "-date",
+            "examples": [
+              "+date",
+              "-date",
+              "+title",
+              "-title"
+            ]
+          },
+          {
+            "name": "limit",
+            "location": "query",
+            "required": true,
+            "type": "number",
+            "default": 10
+          },
+          {
+            "name": "keyword",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "location": "query",
+            "required": true,
+            "type": "number",
+            "default": 1
+          },
+          {
+            "name": "reviewers",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "assessee",
+            "location": "query",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "assesseeId",
+            "location": "query",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "hybridAssessmentSubmission",
+            "location": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "tags",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "assessmentType",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "assignees",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "senders",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "assessmentSenderTenants",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "source",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "assessments",
+        "action": "send",
+        "method": "POST",
+        "path": "/tprm/assessments/send",
+        "description": "Send assessment(s) to assessees",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "tprm",
+        "resource": "assessments",
+        "action": "submit",
+        "method": "PATCH",
+        "path": "/tprm/assessments/{id}/submit",
+        "description": "Submit an assessment",
+        "params": [
+          {
+            "name": "type",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "submissionType",
+            "location": "query",
+            "required": true,
+            "type": "string",
+            "default": "save"
+          },
+          {
+            "name": "assesseeTypes",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "templateNames",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sentByCompanyNames",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sentByEmails",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "statuses",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "countries",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "location": "query",
+            "required": true,
+            "type": "string",
+            "default": "-date",
+            "examples": [
+              "+date",
+              "-date",
+              "+title",
+              "-title"
+            ]
+          },
+          {
+            "name": "limit",
+            "location": "query",
+            "required": true,
+            "type": "number",
+            "default": 10
+          },
+          {
+            "name": "keyword",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "location": "query",
+            "required": true,
+            "type": "number",
+            "default": 1
+          },
+          {
+            "name": "reviewers",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "assessee",
+            "location": "query",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "assesseeId",
+            "location": "query",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "hybridAssessmentSubmission",
+            "location": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "tags",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "assessmentType",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "assignees",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "senders",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "assessmentSenderTenants",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "source",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "tprm",
+        "resource": "assessments",
+        "action": "update",
+        "method": "PUT",
+        "path": "/tprm/assessments/{id}",
+        "description": "Update an assessment risk level and due date",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "tprm",
+        "resource": "assessments",
+        "action": "upsert-context-links",
+        "method": "POST",
+        "path": "/tprm/assessments/upsert-context-links",
+        "description": "Save context links for an assessment",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "tprm",
+        "resource": "assessments",
+        "action": "verification",
+        "method": "GET",
+        "path": "/tprm/assessments/{id}/verification",
+        "description": "Get verification detail (verified questions) for an assessment",
+        "params": [
+          {
+            "name": "type",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "submissionType",
+            "location": "query",
+            "required": true,
+            "type": "string",
+            "default": "save"
+          },
+          {
+            "name": "assesseeTypes",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "templateNames",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sentByCompanyNames",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sentByEmails",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "statuses",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "countries",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "location": "query",
+            "required": true,
+            "type": "string",
+            "default": "-date",
+            "examples": [
+              "+date",
+              "-date",
+              "+title",
+              "-title"
+            ]
+          },
+          {
+            "name": "limit",
+            "location": "query",
+            "required": true,
+            "type": "number",
+            "default": 10
+          },
+          {
+            "name": "keyword",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "location": "query",
+            "required": true,
+            "type": "number",
+            "default": 1
+          },
+          {
+            "name": "reviewers",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "assessee",
+            "location": "query",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "assesseeId",
+            "location": "query",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "hybridAssessmentSubmission",
+            "location": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "tags",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "assessmentType",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "assignees",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "senders",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "assessmentSenderTenants",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "source",
+            "location": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "location": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "dashboard",
+        "action": "get",
+        "method": "GET",
+        "path": "/tprm/assessment-dashboard",
+        "description": "Get the assessments dashboard data",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "risk-score-config",
+        "action": "get-org",
+        "method": "GET",
+        "path": "/tprm/risk-score-config/org",
+        "description": "Get organization-level risk score configuration",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      },
+      {
+        "module": "tprm",
+        "resource": "risk-score-config",
+        "action": "update-assessment",
+        "method": "PATCH",
+        "path": "/tprm/risk-score-config/assessment/{assessmentId}",
+        "description": "Apply risk score configuration to a specific assessment",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "assessmentId",
+            "location": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "tprm",
+        "resource": "risk-score-config",
+        "action": "update-org",
+        "method": "PATCH",
+        "path": "/tprm/risk-score-config/org",
+        "description": "Update organization-level risk score configuration",
+        "params": [
+          {
+            "name": "body",
+            "location": "body",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "bodyKind": "object"
+      },
+      {
+        "module": "tprm",
+        "resource": "vendor-info",
+        "action": "get",
+        "method": "GET",
+        "path": "/tprm/vendor-info",
+        "description": "Get vendor info for the current user",
+        "params": [],
+        "bodyKind": "none",
+        "safe": true
+      }
+    ]
+  }
+}

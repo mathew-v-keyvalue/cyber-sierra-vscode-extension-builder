@@ -1,0 +1,4 @@
+out/
+resources/
+node_modules/
+*.vsix
