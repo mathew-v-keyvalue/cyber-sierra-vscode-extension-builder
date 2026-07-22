@@ -19,6 +19,11 @@
         "command": "morpheus.initialize",
         "title": "Initialize",
         "category": "Morpheus"
+      },
+      {
+        "command": "morpheus.uninstall",
+        "title": "Uninstall (remove CLI + skills)",
+        "category": "Morpheus"
       }
     ]
   },

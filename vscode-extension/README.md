@@ -24,6 +24,13 @@ Progress and full installer output are shown in the **Morpheus** Output channel.
 | Command | Description |
 |---|---|
 | `Morpheus: Initialize` | Re-runs the installer. Safe to run repeatedly — already-installed pieces are left alone or safely refreshed, and any skills the agent has already learned (`_generated/index.json`) are preserved. |
+| `Morpheus: Uninstall (remove CLI + skills)` | Prompts for confirmation, then removes `~/.morpheus`, `~/.cursor/skills/cyber-sierra`, `~/.claude/skills/cyber-sierra`, and the PATH entry from your shell profile. |
+
+## Uninstalling
+
+Uninstalling the extension itself (from the Extensions view) does **not** remove anything this extension installed — the CLI, skills, and PATH entry are meant to keep working standalone even without the editor integration. `deactivate()` intentionally does no filesystem cleanup, since it also fires on a plain "disable extension" and must not be destructive in that case.
+
+To fully remove everything, run **Morpheus: Uninstall** from the Command Palette *before* uninstalling the extension.
 
 ## Development
 
