@@ -90,7 +90,11 @@ do_install() {
   local asset="morpheus-${OS}-${ARCH}.tar.gz"
   local base_url
 
-  if [[ -n "${MORPHEUS_VERSION:-}" ]]; then
+  if [[ -n "${MORPHEUS_BOOTSTRAP_BASE_URL:-}" ]]; then
+    # Local/dev testing only: point at a plain directory of release assets
+    # (e.g. a `python3 -m http.server` serving dist/) instead of GitHub.
+    base_url="${MORPHEUS_BOOTSTRAP_BASE_URL%/}"
+  elif [[ -n "${MORPHEUS_VERSION:-}" ]]; then
     local v="${MORPHEUS_VERSION#v}"
     base_url="https://github.com/${REPO}/releases/download/v${v}"
   else
@@ -99,7 +103,7 @@ do_install() {
 
   local tmp
   tmp="$(mktemp -d "${TMPDIR:-/tmp}/morpheus-install.XXXXXX")"
-  trap 'rm -rf "$tmp"' EXIT
+  trap 'rm -rf "${tmp:-}"' EXIT
 
   echo "Downloading ${asset}..."
   if ! curl -fsSL "${base_url}/${asset}" -o "${tmp}/${asset}"; then

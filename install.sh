@@ -102,9 +102,37 @@ else
 fi
 
 # --- 5. Configure default URL ---
+#
+# There is no `morpheus config` CLI command — the CLI's own config.ts reads
+# ~/.morpheus/config.json directly (a map of profile name -> {baseUrl, orgId,
+# token, expiresAt, email}), normally written by `auth login`/`auth
+# set-token`. We write that file directly here, in plain bash (no Node
+# dependency — morpheus itself may be a Node-free SEA binary), so a default
+# backend URL is in place before the user ever authenticates.
+#
+# If config.json already exists (e.g. the user already ran `auth login`
+# before a reinstall), it's left completely untouched rather than risking
+# clobbering a stored token — same "preserve existing state" idempotency as
+# the skill install above.
 
-morpheus config set --url http://localhost:8080 > /dev/null 2>&1
-echo "Configured default URL    -> http://localhost:8080"
+CONFIG_FILE="$MORPHEUS_HOME/config.json"
+DEFAULT_URL="http://localhost:8080"
+
+chmod 700 "$MORPHEUS_HOME"
+
+if [[ -f "$CONFIG_FILE" ]]; then
+  echo "Config already present    -> $CONFIG_FILE (left untouched)"
+else
+  cat > "$CONFIG_FILE" <<EOF
+{
+  "default": {
+    "baseUrl": "$DEFAULT_URL"
+  }
+}
+EOF
+  chmod 600 "$CONFIG_FILE"
+  echo "Configured default URL    -> $DEFAULT_URL"
+fi
 
 # --- 6. Done ---
 
@@ -113,7 +141,7 @@ echo "Done. To apply PATH in existing terminals, run:"
 echo ""
 echo "  source $SHELL_RC"
 echo ""
-echo "To change the backend URL later:"
+echo "To change the backend URL or authenticate later:"
 echo ""
-echo "  morpheus config set --url <your-url>"
+echo "  morpheus auth login --url <your-url> --org <org-id>"
 echo ""
