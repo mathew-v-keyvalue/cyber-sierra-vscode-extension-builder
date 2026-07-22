@@ -1,10 +1,46 @@
 # Morpheus CLI — Setup Guide
 
-## 0. Installing via VS Code / Cursor extension (recommended)
+## 0. Quick install (recommended) — curl + bash
 
-Install the bundled `.vsix` (see `vscode-extension/`) into VS Code or Cursor. It runs this exact `install.sh` for you automatically the first time it activates, and again any time you run **Morpheus: Initialize** from the Command Palette. Skip to step 4 below to see what it deploys — everything past this point happens for you.
+```bash
+curl -fsSL https://raw.githubusercontent.com/mathew-v-keyvalue/cyber-sierra-vscode-extension-builder/main/bootstrap.sh | bash
+```
 
-## 1. Install
+No manual file handling, no VSIX trust prompt, and no system Node.js
+required to run `morpheus` afterward — this installs a standalone,
+SEA-compiled binary for your platform (Linux or macOS; Windows is out of
+scope). It downloads the latest GitHub Release, verifies its SHA256
+checksum, and runs the same `install.sh` described in the sections below,
+so the result is identical to a manual or VSIX install.
+
+**Update:** re-run the exact same command — it always installs the latest release.
+
+**Pin / roll back to a specific version:**
+
+```bash
+MORPHEUS_VERSION=1.1.0 curl -fsSL https://raw.githubusercontent.com/mathew-v-keyvalue/cyber-sierra-vscode-extension-builder/main/bootstrap.sh | bash
+```
+
+**Uninstall:**
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/mathew-v-keyvalue/cyber-sierra-vscode-extension-builder/main/bootstrap.sh | bash -s -- --uninstall
+```
+
+Removes `~/.morpheus`, both skill directories, and the PATH entry added to
+your shell profile — with a confirmation prompt (pass `--uninstall --yes`
+to skip it).
+
+See [RELEASING.md](./RELEASING.md) if you're cutting a new release rather
+than installing one.
+
+## 1. VS Code / Cursor extension (alternative)
+
+Install the bundled `.vsix` (see `vscode-extension/`) into VS Code or Cursor. It runs this exact `install.sh` for you automatically the first time it activates, and again any time you run **Morpheus: Initialize** from the Command Palette. Skip to section 2.3 below to see what it deploys — everything past this point happens for you.
+
+Note: this path installs the Node-script build of `morpheus` (`bin/morpheus`), which still requires a system Node.js to run — unlike the curl+bash install above.
+
+## 2. Manual local install (development / repo checkout)
 
 ```bash
 ./install.sh
@@ -12,7 +48,7 @@ Install the bundled `.vsix` (see `vscode-extension/`) into VS Code or Cursor. It
 
 Copies the CLI binary and command manifest to `~/.morpheus/`.
 
-## 2. Add to PATH
+### 2.1 Add to PATH
 
 Append to `~/.zshrc` (or `~/.bashrc`):
 
@@ -26,7 +62,7 @@ Reload your shell:
 source ~/.zshrc
 ```
 
-## 3. Configure
+### 2.2 Configure
 
 Set the backend URL (persisted to `~/.morpheus/config.json`):
 
@@ -40,7 +76,7 @@ Verify:
 morpheus config show
 ```
 
-## 4. Skill installation
+### 2.3 Skill installation
 
 `install.sh` also deploys the compliance-automation agent skill globally, for both editors:
 

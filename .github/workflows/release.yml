@@ -1,0 +1,57 @@
+name: Release
+
+# Triggered by pushing a version tag (e.g. v1.2.0). Never compiles anything —
+# the SEA binaries are built manually in the separate morpheus/ CLI project
+# and staged ahead of time in the "binaries-staging" GitHub Release (see
+# RELEASING.md). This workflow just fetches whatever's currently staged,
+# packages it with scripts/release.sh, and publishes the real release.
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch manually-staged platform binaries
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          mkdir -p release-input
+          for PLATFORM in linux-x64 linux-arm64 darwin-arm64 darwin-x64; do
+            ASSET="morpheus-${PLATFORM}"
+            if gh release download binaries-staging \
+                 --repo "${{ github.repository }}" \
+                 --pattern "$ASSET" \
+                 --dir release-input \
+                 --clobber; then
+              echo "Fetched $ASSET from binaries-staging"
+            else
+              echo "No $ASSET in binaries-staging — $PLATFORM will be skipped this release"
+            fi
+          done
+
+      - name: Derive version from tag
+        id: version
+        run: echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Package release assets
+        run: ./scripts/release.sh "${{ steps.version.outputs.version }}"
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          generate_release_notes: true
+          files: |
+            dist/*.tar.gz
+            dist/SHA256SUMS

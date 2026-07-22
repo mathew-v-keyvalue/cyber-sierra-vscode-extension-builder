@@ -5,3 +5,9 @@ vscode-extension/node_modules/
 vscode-extension/out/
 vscode-extension/resources/
 
+# release packaging: manually-dropped-in per-platform SEA binaries
+# and the ephemeral output of scripts/release.sh
+release-input/*
+!release-input/README.md
+/dist/
+
